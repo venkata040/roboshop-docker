@@ -2,7 +2,6 @@ networks:
   default:
     driver: bridge
     name: roboshop
-    external: true
 
 services:
   mongodb:
@@ -37,3 +36,10 @@ services:
     depends_on:
     - mysql
     - cart
+  rabbitmq: 
+    image: rabbitmq:3
+    conainer_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+  
