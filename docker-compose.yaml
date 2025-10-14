@@ -57,5 +57,16 @@ services:
     depends_on:
     - rabbitmq
     - cart
-    - user       
+    - user     
+  frontend:
+    image: venkata040/frontend:v1
+    container_name: frontend
+    ports:
+    - "80:80"
+    depends_on:
+    - catalogue
+    - user
+    - cart
+    - shipping
+    - payment    
   
