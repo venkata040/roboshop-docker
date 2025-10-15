@@ -39,14 +39,14 @@ services:
   mysql:
     image: venkata040/mysql:v1
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
   shipping:
     image: venkata040/shipping:v1
     container_name: shipping
     depends_on:
     - mysql
     - cart
-    volumes:
-    - mysql:/var/lib/mysql
   rabbitmq: 
     image: rabbitmq:3
     container_name: rabbitmq
